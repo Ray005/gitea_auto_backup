@@ -6,12 +6,16 @@ import requests
 from flask import Flask, request, jsonify
 from base64 import b64encode
 
+# 确保日志目录存在
+LOG_DIR = "/app/logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+
 # 配置日志
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("webhook_receiver.log"),
+        logging.FileHandler(os.path.join(LOG_DIR, "webhook_receiver.log")),  # 使用绝对路径
         logging.StreamHandler()
     ]
 )
