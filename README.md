@@ -61,9 +61,10 @@ cd gitea_auto_backup/dockerfile
         export TARGET_GITEA_URL=http://xx.xx.xx.xx:8418 # 备份仓库的地址
         export TARGET_GITEA_TOKEN=90fxxxxxxxxxxxxxxx # 在备份仓库中新建一个Token
         export TARGET_GITEA_USERNAME=xxxx # 备份仓库中的用户名
-        export SOURCE_REPO_URL="http://xxxx:3000/xxx/xxx.git" \ 
+        export SOURCE_GITEA_URL="http://xxxx:3000" \ 
         export SOURCE_GITEA_TOKEN="bxxxxxxxxxxxxxxxxx3" \ 
-        export WEBHOOK_SECRET=xxx # webhook的密码，这个密码和下面主仓库需要一致才能完成推送
+        export SOURCE_GITEA_USERNAME=xxx \
+        export WEBHOOK_SECRET=xxx # webhook的密码，这个密码和下面主仓库创建webhook时需要一致才能完成推送
         export PORT=3003 # webhooker的服务端口，如果是公网环境记得开放这个端口
         ```
         
@@ -101,8 +102,9 @@ vim run.sh
 -e TARGET_GITEA_URL=https://100.102.101.xx:8418 \ # target的gitea地址
 -e TARGET_GITEA_TOKEN=9xxxxxxxxxxxa \ # target的gitea token
 -e TARGET_GITEA_USERNAME=xxx \ # target的gitea username
--e SOURCE_REPO_URL="http://xxxx:3000/xxx/xxx.git" \ 
--e SOURCE_GITEA_TOKEN="bxxxxxxxxxxxxxxxxx3" \ 
+-e SOURCE_GITEA_URL="http://xxxx:3000" \ # source的gitea地址
+-e SOURCE_GITEA_TOKEN="bxxxxxxxxxxxxxxxxx3" \ # source的gitea token
+-e SOURCE_GITEA_USERNAME=xxx \ # source的gitea username
 -e WEBHOOK_SECRET=xxxxxx \ # 与source的webhook secret一致（在创建source的webhook时设置）
 
 # 运行容器
