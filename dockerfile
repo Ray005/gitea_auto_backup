@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.10-slim-bullseye
 
 WORKDIR /app
 
@@ -11,7 +11,3 @@ COPY webhook_receiver.py .
 ENV PORT=5000
 
 EXPOSE 5000
-
-CMD ["python", "webhook_receiver.py"]
-
-

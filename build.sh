@@ -1,1 +1,1 @@
-docker build  -f docker-compose.yaml -t gitea-webhook-handler .
+docker build  -f dockerfile -t gitea-webhook-handler .
